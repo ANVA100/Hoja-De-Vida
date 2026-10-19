@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <!-- R1: viewport para que el diseño responda en dispositivos reales. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hoja de vida y portafolio de Andres Felipe Vasquez Velasco.">
+  <meta name="theme-color" content="#080d0a">
+  <title>Andres Felipe Vasquez Velasco | Hoja de vida</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Inicio, Andres Felipe Vasquez Velasco">
+        <span class="brand-mark" aria-hidden="true">AV</span>
+        <span class="brand-copy"><strong>Andres Felipe</strong><small>Portafolio personal</small></span>
+      </a>
+    </header>
+
+    <!-- R8: el mismo menú conecta la hoja de vida con las dos páginas del sitio. -->
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <main class="page-main">
+      <div class="container resume-grid">
+        <section class="resume-intro panel" aria-labelledby="name-heading">
+          <figure class="resume-photo">
+            <img src="assets/foto-perfil.jpeg" alt="Retrato de Andres Felipe Vasquez Velasco">
+          </figure>
+          <div class="resume-intro-copy">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Perfil profesional <span class="eyebrow-divider">/</span> 01</p>
+            <h1 id="name-heading">Andres Felipe<br><span>Vasquez Velasco</span></h1>
+            <p class="role-title">Diseñador de software</p>
+            <p class="lead">Soy una persona comprometida, motivada por los retos y con interés en la computación, las ventas y los negocios. Mi formación técnica en producción musical suma una mirada creativa a los proyectos digitales.</p>
+            <div class="project-actions" aria-label="Proyectos destacados">
+              <a class="button button-primary" href="https://anva100.github.io/bucaramanga-sounds-system/" target="_blank" rel="noopener noreferrer">Bucaramanga Sounds System <span aria-hidden="true">↗</span></a>
+              <a class="button button-secondary" href="https://anvar-space.web.app/" target="_blank" rel="noopener noreferrer">Anvar Space <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="resume-skills panel" aria-labelledby="skills-heading">
+          <p class="eyebrow">Tecnología y método <span class="eyebrow-divider">/</span> 02</p>
+          <h2 id="skills-heading">Herramientas que estoy desarrollando</h2>
+          <ul class="skill-list" aria-label="Habilidades técnicas">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Python</li>
+            <li>Scrum</li>
+          </ul>
+          <div class="language-line"><span>Idiomas</span><strong>Español</strong><span class="language-separator">·</span><strong>Inglés intermedio</strong></div>
+        </section>
+
+        <section class="resume-experience panel" aria-labelledby="experience-heading">
+          <p class="eyebrow">Experiencia comercial <span class="eyebrow-divider">/</span> 03</p>
+          <h2 id="experience-heading">Ventas por internet</h2>
+          <p>Experiencia promoviendo y vendiendo en línea páginas web, lociones y servicios de telefonía móvil, electricidad y gas.</p>
+          <ul class="tag-list" aria-label="Competencias comerciales">
+            <li>Ventas digitales</li>
+            <li>Negocios</li>
+            <li>Atención al cliente</li>
+          </ul>
+        </section>
+
+        <section class="resume-education panel" aria-labelledby="education-heading">
+          <p class="eyebrow">Formación <span class="eyebrow-divider">/</span> 04</p>
+          <h2 id="education-heading">Técnico en producción musical</h2>
+          <p>Formación técnica que combina creatividad, conocimiento de audio y trabajo por proyectos.</p>
+          <a class="text-link" href="contacto.html">Conversemos sobre una idea <span aria-hidden="true">↗</span></a>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>Andres Felipe Vasquez Velasco</span>
+        <span>Diseño · tecnología · creatividad</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

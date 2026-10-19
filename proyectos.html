@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <!-- R1: viewport para que el diseño responda en dispositivos reales. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Proyectos web de Andres Felipe Vasquez Velasco.">
+  <meta name="theme-color" content="#080d0a">
+  <title>Proyectos | Andres Felipe Vasquez Velasco</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Inicio, Andres Felipe Vasquez Velasco">
+        <span class="brand-mark" aria-hidden="true">AV</span>
+        <span class="brand-copy"><strong>Andres Felipe</strong><small>Portafolio personal</small></span>
+      </a>
+    </header>
+    <!-- R8: navegación idéntica en las tres páginas. -->
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html" aria-current="page">Proyectos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <main class="page-main">
+      <div class="container projects-main">
+        <section class="page-heading" aria-labelledby="page-title">
+          <p class="eyebrow">Trabajo destacado <span class="eyebrow-divider">/</span> 02</p>
+          <h1 id="page-title">Proyectos digitales</h1>
+          <p class="lead">Proyectos web y experiencias digitales desarrolladas para distintos públicos y necesidades.</p>
+        </section>
+
+        <!-- R5: las tarjetas usan repeat(auto-fit, minmax(...)) en styles.css. -->
+        <section class="project-grid" aria-label="Proyectos web">
+          <article class="project-card panel">
+            <img class="project-art" src="assets/bucaramanga-sounds-system.svg" alt="Ilustración de un disco de vinilo y ondas de sonido en tonos verdes, inspirada en el proyecto musical." width="720" height="420" loading="lazy">
+            <div class="project-copy">
+              <p class="eyebrow">Música · Bucaramanga</p>
+              <h2>Bucaramanga Sounds System</h2>
+              <p>Sitio estático desarrollado con HTML y CSS para un colectivo de música electrónica, con identidad, agenda, contenido sonoro y contacto.</p>
+              <a class="text-link" href="https://anva100.github.io/bucaramanga-sounds-system/" target="_blank" rel="noopener noreferrer">Visitar sitio <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card panel">
+            <img class="project-art" src="assets/anvar-space.svg" alt="Ilustración de un planeta y órbitas en tonos verdes para Anvar Space." width="720" height="420" loading="lazy">
+            <div class="project-copy">
+              <p class="eyebrow">Proyecto web · Anvar Space</p>
+              <h2>Anvar Space</h2>
+              <p>Sitio web de Anvar Space publicado en línea.</p>
+              <a class="button button-primary" href="https://anvar-space.web.app/" target="_blank" rel="noopener noreferrer">Visitar Anvar Space <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><span>Andres Felipe Vasquez Velasco</span><span>Diseño · tecnología · creatividad</span></div></footer>
+  </div>
+</body>
+</html>

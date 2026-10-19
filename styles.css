@@ -1,0 +1,207 @@
+/* R1: todas las páginas incluyen la etiqueta viewport en su <head>. */
+:root {
+  color-scheme: dark;
+  --color-bg: #080d0a;
+  --color-surface: #0d1510;
+  --color-panel: #121d16;
+  --color-panel-soft: #15241a;
+  --color-border: #293a2d;
+  --color-text: #f3f7f2;
+  --color-muted: #b4c0b7;
+  --color-dim: #829187;
+  --color-green: #a7ff56;
+  --color-green-soft: #b6ff7a;
+  --color-ink: #08100a;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* R2: Mobile First. Las reglas iniciales describen el diseño de celular. */
+* { box-sizing: border-box; }
+html { min-width: 20rem; scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-text);
+  background: radial-gradient(ellipse at 78% 0%, rgb(77 126 52 / 18%), transparent 34rem), var(--color-bg);
+}
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--color-green); outline-offset: 4px; }
+/* R7: las imágenes conservan el ancho del contenedor y requieren alt descriptivo en HTML. */
+img { display: block; max-width: 100%; height: auto; }
+
+/* R4: las áreas principales reordenan cabecera, menú, contenido y pie. */
+.site-shell {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: "header" "nav" "main" "footer";
+  grid-template-rows: auto auto 1fr auto;
+}
+.site-header { grid-area: header; }
+.main-nav { grid-area: nav; }
+.page-main { grid-area: main; }
+.site-footer { grid-area: footer; }
+/* R6: contenido centrado, max-width y unidades relativas. */
+.container { width: calc(100% - 2rem); max-width: 72rem; margin-inline: auto; }
+.site-header {
+  display: flex;
+  align-items: center;
+  min-height: 4.8rem;
+  padding: .85rem max(1rem, calc((100vw - 72rem) / 2));
+  border-bottom: 1px solid rgb(143 161 148 / 15%);
+}
+.brand { display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; }
+.brand-mark, .contact-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: var(--color-ink);
+  background: var(--color-green);
+  font-weight: 800;
+  letter-spacing: -.05em;
+}
+.brand-mark { width: 2.45rem; aspect-ratio: 1; border-radius: .8rem; font-size: .95rem; }
+.brand-copy { display: grid; line-height: 1.2; }
+.brand-copy strong { font-size: .9rem; }
+.brand-copy small { margin-top: .2rem; color: var(--color-dim); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; }
+/* R8: menú común para ir y volver entre las tres páginas. */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: .35rem;
+  width: min(calc(100% - 2rem), 30rem);
+  margin: .75rem auto 0;
+  padding: .3rem;
+  border: 1px solid rgb(143 161 148 / 12%);
+  border-radius: 999px;
+  background: rgb(18 29 22 / 85%);
+}
+.main-nav a { min-width: 0; padding: .45rem .75rem; border-radius: 999px; color: #c4cec6; font-size: .76rem; text-align: center; text-decoration: none; transition: color .18s ease, background-color .18s ease; }
+.main-nav a:hover, .main-nav a[aria-current="page"] { color: var(--color-green); background: #1a2a1d; }
+.main-nav a[aria-current="page"] { color: var(--color-ink); background: var(--color-green); font-weight: 700; }
+.page-main { width: 100%; padding-block: 2rem 3rem; }
+.panel { border: 1px solid var(--color-border); border-radius: 1.1rem; background: linear-gradient(145deg, rgb(18 29 22 / 96%), rgb(13 21 16 / 96%)); }
+.eyebrow { display: flex; align-items: center; gap: .45rem; margin: 0 0 .9rem; color: var(--color-green); font-size: .66rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+.eyebrow-divider { color: #56714d; }
+.status-dot { width: .42rem; aspect-ratio: 1; border-radius: 50%; background: var(--color-green); box-shadow: 0 0 0 .25rem rgb(167 255 86 / 10%); }
+h1, h2, p { margin-top: 0; }
+h1, h2 { line-height: 1.12; letter-spacing: -.04em; }
+h1 { margin-bottom: .75rem; font-size: clamp(2.15rem, 9vw, 3.3rem); }
+h1 span { color: #c4d0c6; }
+h2 { margin-bottom: .8rem; font-size: clamp(1.2rem, 4.5vw, 1.55rem); }
+p { color: var(--color-muted); }
+.lead { max-width: 43rem; font-size: 1rem; line-height: 1.8; }
+.role-title { margin: 0 0 1rem; color: var(--color-green); font-size: 1.1rem; font-weight: 600; }
+.resume-grid {
+  display: grid;
+  grid-template-areas: "intro" "skills" "experience" "education";
+  gap: 1rem;
+}
+.resume-intro { display: grid; grid-area: intro; grid-template-columns: minmax(0, 1fr); grid-template-areas: "portrait" "copy"; gap: 1.1rem; padding: 1.35rem; }
+.resume-intro-copy { grid-area: copy; min-width: 0; }
+.resume-photo { grid-area: portrait; justify-self: center; width: 7.5rem; aspect-ratio: 4 / 5; margin: 0; padding: .3rem; overflow: hidden; border: 1px solid #496446; border-radius: 1.2rem; background: linear-gradient(145deg, #263b2b, #101912); box-shadow: 0 .8rem 2rem rgb(0 0 0 / 22%); }
+.resume-photo img { width: 100%; height: 100%; border-radius: .85rem; object-fit: cover; object-position: center 40%; }
+.resume-skills { grid-area: skills; padding: 1.25rem; }
+.resume-experience { grid-area: experience; padding: 1.25rem; }
+.resume-education { grid-area: education; padding: 1.25rem; }
+.resume-intro .lead { max-width: 38rem; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  min-height: 2.9rem;
+  padding: .65rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.button:hover { transform: translateY(-2px); box-shadow: 0 .65rem 1.8rem rgb(0 0 0 / 24%); }
+.button-primary { color: var(--color-ink); background: var(--color-green); }
+.button-secondary { color: var(--color-text); border-color: #405644; background: #17251b; }
+.project-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.25rem; }
+.project-actions .button { flex: 1 1 11.5rem; }
+.skill-list, .tag-list { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
+.skill-list li, .tag-list li { padding: .4rem .78rem; border: 1px solid #304435; border-radius: 999px; color: var(--color-green-soft); background: #18271c; font-size: .76rem; font-weight: 650; }
+.language-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem; margin-top: 1.2rem; color: var(--color-muted); font-size: .8rem; }
+.language-line > span:first-child { margin-right: .35rem; color: var(--color-dim); }
+.language-line strong { color: var(--color-text); font-weight: 600; }
+.language-separator { color: var(--color-green); }
+.resume-experience > p:not(.eyebrow), .resume-education > p:not(.eyebrow) { margin-bottom: .8rem; font-size: .9rem; }
+.text-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--color-green-soft); font-size: .82rem; font-weight: 700; text-decoration-thickness: .08em; text-underline-offset: .22em; }
+.text-link:hover { color: var(--color-green); }
+.page-heading { max-width: 54rem; margin-bottom: 1.8rem; }
+.page-heading h1 { margin-bottom: .8rem; }
+.projects-main { padding-top: .25rem; }
+/* R5: las tarjetas se adaptan con repeat(auto-fit, minmax(...)). */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
+.project-card { overflow: hidden; }
+.project-art { display: block; width: 100%; height: auto; aspect-ratio: 12 / 7; object-fit: cover; background: var(--color-panel-soft); }
+.project-copy { padding: 1.2rem; }
+.project-copy .eyebrow { margin-bottom: .65rem; font-size: .58rem; }
+.project-copy h2 { font-size: 1.3rem; }
+.project-copy p:not(.eyebrow) { min-height: 4.4rem; font-size: .88rem; }
+/* R9: las páginas del sitio usan rutas relativas entre sí. */
+/* R10: los vínculos externos del HTML abren en otra pestaña. */
+/* R11: validar cada página HTML con el validador W3C antes de entregar. */
+.contact-grid { display: grid; grid-template-areas: "copy" "card"; gap: 1.2rem; align-items: center; }
+.contact-copy { grid-area: copy; }
+.contact-copy h1 { font-size: clamp(2.7rem, 12vw, 4.6rem); }
+.contact-copy .lead { max-width: 37rem; }
+.contact-card { grid-area: card; display: grid; justify-items: center; padding: 1.8rem 1.3rem; text-align: center; }
+.contact-card .eyebrow { margin-top: 1rem; }
+.contact-mark { width: 5.3rem; aspect-ratio: 1; border: .45rem solid #243a28; border-radius: 50%; font-size: 1.4rem; }
+.contact-card h2 { font-size: 1.45rem; }
+.contact-card .button { margin-top: .4rem; }
+.site-footer { border-top: 1px solid rgb(143 161 148 / 15%); }
+.footer-inner { display: flex; flex-direction: column; gap: .25rem; padding-block: 1.2rem; color: var(--color-dim); font-size: .72rem; }
+
+/* R2 + R3: los breakpoints van al final y suben de menor a mayor. */
+@media (min-width: 600px) {
+  .page-main { padding-block: 3rem 4rem; }
+  .resume-intro, .resume-skills, .resume-experience, .resume-education { padding: 1.6rem; }
+  .main-nav { gap: .7rem; }
+  .main-nav a { min-width: 7rem; }
+  .project-grid { gap: 1.3rem; }
+  .project-copy { padding: 1.5rem; }
+  .footer-inner { flex-direction: row; justify-content: space-between; }
+}
+
+@media (min-width: 768px) {
+  .resume-intro { grid-template-columns: minmax(0, 1fr) 8rem; grid-template-areas: "copy portrait"; gap: 1.25rem; }
+  .resume-photo { width: 8rem; justify-self: end; }
+  .resume-intro h1 { font-size: clamp(2.05rem, 4.1vw, 3rem); }
+}
+
+@media (min-width: 1024px) {
+  /* R4: las áreas header/nav comparten fila en computador. */
+  .site-shell { grid-template-areas: "header nav" "main main" "footer footer"; grid-template-columns: minmax(15rem, 1fr) auto; }
+  .site-header { padding-block: .85rem; border-bottom: 0; }
+  .main-nav { width: auto; margin: 0 3rem 0 0; border: 0; background: transparent; }
+  .page-main { padding-block: 3.2rem 5rem; }
+  .resume-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(17rem, .8fr);
+    grid-template-areas: "intro skills" "experience education";
+    gap: 1.25rem;
+  }
+  .resume-intro { grid-template-columns: minmax(0, 1fr) 9rem; padding: 2.1rem; }
+  .resume-photo { width: 9rem; }
+  .resume-skills, .resume-experience, .resume-education { padding: 1.8rem; }
+  .projects-main { padding-top: .5rem; }
+  .project-grid { gap: 1.5rem; }
+  .project-copy { padding: 1.6rem; }
+  .contact-grid { grid-template-columns: minmax(0, 1.15fr) minmax(20rem, .85fr); grid-template-areas: "copy card"; gap: 4rem; }
+  .contact-copy h1 { font-size: 4.5rem; }
+  .contact-card { min-height: 22rem; padding: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms; animation-duration: .01ms; }
+}
